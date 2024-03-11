@@ -30,6 +30,7 @@ public class CommandHandler {
             System.out.println("Unknown command");
             return;
         }
+
         var invoker = new CommandInvoker();
 
         invoker.setCommand(command);

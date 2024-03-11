@@ -9,12 +9,13 @@ import interfaces.Command;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Represents a command to read and execute a script from a provided file.
  */
 public class ExecuteScript implements Command {
-    private static List<String> handledScripts = new ArrayList<>();
+    private static Stack<String> handledScripts = new Stack<>();
 
     /**
      * Get the name of the command.
@@ -46,9 +47,8 @@ public class ExecuteScript implements Command {
         }
         String scriptName = args[1];
 
-        System.out.println(handledScripts);
         if (handledScripts.contains(scriptName)){
-            System.out.println("Script cannot call itself or have infinite loop");
+            System.out.println("WARN: " + scriptName + " cannot be called twice, skipping...");
             return;
         }
         handledScripts.add(scriptName);
@@ -74,5 +74,6 @@ public class ExecuteScript implements Command {
 
         } catch (IOException e){
         }
+        handledScripts.remove(scriptName);
     }
 }

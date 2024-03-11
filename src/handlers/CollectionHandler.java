@@ -116,7 +116,7 @@ public class CollectionHandler {
         String output = "Collection " + this.collection.getClass().getSimpleName();
         output += " containing " + this.collection.size() + " of object Route. \n";
         output += "Collection created on " + dateCreated + ".\n";
-        output += "Collection stored at " + pathToCollection + ".\n";
+        output += "Collection stored at " + pathToCollection + ".";
 
         return output;
     }

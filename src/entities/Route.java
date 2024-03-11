@@ -250,6 +250,7 @@ public class Route implements Comparable<Route>{
         return Double.compare(r.getDistance(), this.distance);
     }
 
+
     /**
      * Get the distance of the Route.
      * @return The distance value.
